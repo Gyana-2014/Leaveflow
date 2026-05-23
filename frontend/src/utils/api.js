@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,  // ✅ use env var
   timeout: 10000,
 });
 
@@ -42,7 +42,7 @@ export const employeeAPI = {
 
 // ── Auth API ─────────────────────────────────────────────────────────────────
 export const authAPI = {
-  login: (data) => api.post('/login', data),
+  login: (data) => api.post('/auth/login', data),  // ✅
 };
 
 export default api;
